@@ -3,6 +3,7 @@ package br.com.caelum.argentum.testes;
 import java.util.GregorianCalendar;
 
 import br.com.caelum.argentum.modelo.CandleBuilder;
+import br.com.caelum.argentum.modelo.Candlestick;
 
 public class TestaCandleBuilder {
 
@@ -17,6 +18,9 @@ public class TestaCandleBuilder {
 		builder.comVolume(145234.20);
 		builder.comData(new GregorianCalendar(2012, 8, 12, 0, 0, 0));
 		
+		Candlestick candle = builder.geraCandle();
+		
+		System.out.println(candle.toString());
 		
 		
 	}
