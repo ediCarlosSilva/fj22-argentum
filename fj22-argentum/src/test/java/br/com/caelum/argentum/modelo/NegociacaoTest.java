@@ -3,6 +3,7 @@ package br.com.caelum.argentum.modelo;
 import static org.junit.Assert.*;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import org.junit.Test;
 
@@ -30,6 +31,25 @@ public class NegociacaoTest {
 	@Test(expected=IllegalArgumentException.class)
 	public void naoCriaNegociacaoComDataNula() {
 		new Negociacao(10, 5, null);
+	}
+	
+	@Test
+	public void mesmoMilissegundoEhDoMesmoDia() {
+		Calendar agora = Calendar.getInstance();
+		Calendar mesmoMomento = (Calendar) agora.clone();
+		
+		Negociacao negocio = new Negociacao(40.0, 100, agora);
+		Assert.assertTrue(negocio.isMesmoDia(mesmoMomento));
+	}
+	
+	@Test
+	public void comHorariosDiferentesEhNoMesmoDia() {
+		// usando GregorianCalendar(ano, mes, dia, hora, minuto)
+		Calendar manha = new GregorianCalendar(2011, 10, 20, 8, 30);
+		Calendar tarde = new GregorianCalendar(2011, 10, 20, 15, 30);
+		
+		Negociacao negociacao = new Negociacao(40.0, 100, manha);
+		Assert.assertTrue(negociacao.isMesmoDia(tarde));
 	}
 	
 }
