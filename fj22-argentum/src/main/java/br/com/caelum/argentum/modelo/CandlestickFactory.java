@@ -23,6 +23,10 @@ public class CandlestickFactory {
 			}
 		}
 		
+		if ( minimo == Double.MAX_VALUE) {
+			minimo = 0;
+		}
+		
 		double abertura = negociacoes.isEmpty() ? 0 : negociacoes.get(0).getPreco();
 		double fechamento = negociacoes.isEmpty() ? 0 : negociacoes.get(negociacoes.size() - 1).getPreco();
 		
