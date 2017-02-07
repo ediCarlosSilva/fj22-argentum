@@ -54,6 +54,7 @@ public class CandlestickFactoryTest {
 	
 	@Test
 	public void apenasUmaNegociacaoGeraCandleComValoresIguais() {
+
 		Calendar hoje = Calendar.getInstance();
 		
 		Negociacao negociacao1 = new Negociacao(40.5, 100, hoje);
@@ -70,4 +71,22 @@ public class CandlestickFactoryTest {
 		Assert.assertEquals(4050.0, candle.getVolume(), 0.00001);
 		
 	}
+
+	public void paraNegociacoesDeTresDiasDistintosGeraTresCandles() {
+		
+		Calendar hoje = Calendar.getInstance();
+		
+		Negociacao negociacao1 = new Negociacao(40.5, 100, hoje);
+		Negociacao negociacao2 = new Negociacao(45.0, 100, hoje);
+		Negociacao negociacao3 = new Negociacao(39.8, 100, hoje);
+		Negociacao negociacao4 = new Negociacao(42.3, 100, hoje);
+		
+		Calendar amanha = (Calendar) hoje.clone();
+		
+		amanha.add(Calendar.DAY_OF_MONTH, 1);
+		
+		Negociacao 
+		
+	}
+
 }
